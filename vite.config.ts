@@ -1,16 +1,18 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// vite.config.ts
 export default defineConfig({
+  plugins: [react()],
   base: '/authFormExample/',
   build: {
-    manifest: true,
+    outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
       output: {
-        entryFileNames: `assets/[name]-[hash].js`,
-        chunkFileNames: `assets/[name]-[hash].js`,
-        assetFileNames: `assets/[name]-[hash].[ext]`
+        entryFileNames: `[name]-[hash].js`,
+        chunkFileNames: `[name]-[hash].js`,
+        assetFileNames: `[name]-[hash].[ext]`
       }
     }
   }
-});
+})
