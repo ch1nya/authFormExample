@@ -1,18 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <link rel="icon" type="image/svg+xml" href="/authFormExample/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Professional login form with Apple-inspired design" />
-    <meta name="theme-color" content="#3b82f6" />
-    <base href="/authFormExample/" />
-    <title>Login SPA</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <base href="/authFormExample/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auth Form</title>
+  <script>
+    const loadApp = () => {
+      const root = document.getElementById('root');
+      if (!root) {
+        console.error('Root element not found');
+        return;
+      }
+      
+      const script = document.createElement('script');
+      script.src = '/authFormExample/assets/index-[hash].js';
+      script.onerror = () => {
+        console.error('Failed to load app script');
+        root.innerHTML = '<h1>Application failed to load</h1>';
+      };
+      document.head.appendChild(script);
+    };
+    document.addEventListener('DOMContentLoaded', loadApp);
+  </script>
+</head>
+<body>
+  <div id="root">
+    <noscript>
+      <h1>JavaScript is required to run this app</h1>
+    </noscript>
+  </div>
+</body>
 </html>
