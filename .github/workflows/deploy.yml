@@ -32,7 +32,10 @@ jobs:
         run: npm ci
         
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          ls -R dist
+          grep -r "src/main" dist || echo "No src/main references found"
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
