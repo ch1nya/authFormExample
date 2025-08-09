@@ -35,8 +35,7 @@ jobs:
         run: |
           npm run build
           ls -R dist
-          grep -r "src/main" dist || echo "No src/main references found"
-        
+          sed -i 's/src="\/authFormExample\//src="\/authFormExample\/?cb='$(date +%s)'/g' dist/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

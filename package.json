@@ -8,7 +8,7 @@
   "dev": "vite",
   "build": "tsc && vite build",
   "preview": "vite preview",
-  "deploy": "npm run build && gh-pages -d dist"
+  "deploy": "gh-pages -d dist -b gh-pages -r https://github.com/ch1nya/authFormExample.git"
 },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
