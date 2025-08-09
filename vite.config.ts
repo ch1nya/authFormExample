@@ -6,11 +6,10 @@ export default defineConfig({
   base: '/authFormExample/',
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
-    emptyOutDir: true,
-    sourcemap: true
-  },
-  server: {
-    port: 3000
+    rollupOptions: {
+      input: {
+        main: './index.html'
+      }
+    }
   }
 })
